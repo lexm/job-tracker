@@ -2,5 +2,9 @@
   {
     "SourceName": "Indeed",
     "SourceURL": "https://www.indeed.com/"
+  },
+  {
+    "SourceName": "Craigslist (Seattle area)",
+    "SourceURL": "https://seattle.craigslist.org/"
   }
 ]
