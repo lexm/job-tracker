@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const db = require('../lib/initDB')
+const fail = () => process.exit(1)
+const success = () => process.exit(0)
+const help = () => {
+  console.log('LoadTables');
+}
+
+function initEmp() {
+  db.createEmployerTable()
+  .then(() => db.readEmployerJSON(employer.json))
+  .then(() => success())
+  .catch(err => {
+    help()
+    fail()
+    console.error(err);
+  })
+}
+
+function initSrc() {
+  db.createLeadSourceTable()
+  .then(() => db.readSourceJSON(leadSources.json))
+  .then(() => success())
+  .catch(err => {
+    help()
+    fail()
+    console.error(err);
+  })
+}
+
+initEmp()
+initSrc()
