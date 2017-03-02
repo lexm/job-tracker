@@ -39,6 +39,6 @@ xport.readTestJSON = (file) => {
   .then(data => JSON.parse(data.toString().trim()))
   .then(fd => fd.map(loadTestRecord))
   .then(proms => Promise.all(proms))
-  .then(qres => console.log('query result:', qres.map((cur) => cur.rows))
+  .then(qres => console.log('query result:', qres.map((cur) => cur.rows[0])))
   .catch(err => console.error(err))
 }
