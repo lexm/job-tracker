@@ -35,10 +35,10 @@ const loadTestRecord = function(record) {
 
 xport.readTestJSON = (file) => {
   console.log('Test file: ', file);
-  return fsProm.readFileAsync(`${__dirname}/../public/data/${file}`)
+  return fsProm.readFileAsync(`${__dirname}/${file}`)
   .then(data => JSON.parse(data.toString().trim()))
   .then(fd => fd.map(loadTestRecord))
   .then(proms => Promise.all(proms))
   .then(qres => console.log('query result:', qres.map((cur) => cur.rows))
-  .catch(err => console.error(err)) 
+  .catch(err => console.error(err))
 }

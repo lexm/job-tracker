@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const db = require('../lib/DBTest');
+const db = require('./DBTest');
 console.log('db', db);
 const fail = () => process.exit(1);
 const success = () => process.exit(0);
