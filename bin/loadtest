@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const db = require('../lib/DBTest');
+console.log(db);
+const fail = () => process.exit(1);
+const success = () => process.exit(0);
+const help = () => {
+  console.log('This is the help message');
+}
+
+function testEmp() {
+  db.readEmployerJSON('employer.json')
+  .then(() => success())
+  .catch(e => {
+    help();
+    fail();
+    console.error('err', e);
+  });
+}
+
+testEmp();
