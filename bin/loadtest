@@ -9,7 +9,7 @@ const help = () => {
 }
 
 function testEmp() {
-  db.readEmployerJSON('employer.json')
+  db.readTestJSON('test.json')
   .then(() => success())
   .catch(e => {
     help();
