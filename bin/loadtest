@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const db = require('../lib/DBTest');
-console.log(db);
+console.log('db', db);
 const fail = () => process.exit(1);
 const success = () => process.exit(0);
 const help = () => {
