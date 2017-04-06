@@ -1,0 +1,68 @@
+# Created using app.quickdatabasediagrams.com
+
+LeadSource as src
+-
+SourceID PK int
+SourceName string
+SourceUrl string
+# SourceAcctName string
+# SourceAcctPassword string
+
+Position as pos
+-
+IntPosID int PK
+JobTitle string
+ExtPosID string
+LeadSource int FK >- src.SourceID
+Employer int FK >- emp.EmployerID
+Location string
+ApplicationDate date
+ApplicationTime time
+# ResID int FK >- Resume.ResVersionID
+# CvrID int FK >- CoverLetter.LtrID
+
+Employer as emp
+-
+EmployerID PK int
+EmployerName string
+
+Contact as cnt
+-
+ContactID PK int
+ContactName string
+ContactEmail string
+ContactPhone string
+ContactEmp int FK >- emp.EmployerID
+
+Event
+-
+EventID PK int
+Contact int FK >- cnt.ContactId
+ContactDate date
+Summary string
+EventType enum
+PosID int FK >- pos.IntPosID
+
+Resume
+-
+ResVersionID PK int
+ResVersion binary
+ResVersionHash string
+
+CoverLetter
+-
+LtrID PK int
+LtrVersion binary
+LtrVersionHash string
+
+
+[settings]
+Zoom 80
+
+[layout]
+Position 26 6
+LeadSource 264 14
+Employer 271 212
+Contact 43 342
+Event 273 342
+Resume 529 266
